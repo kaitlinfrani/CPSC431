@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Universities List</title>
+	<script>
+		function addUniversity() {
+			// Get form data
+			var name = document.getElementById("name").value;
+			var location = document.getElementById("location").value;
+			var imageUrl = document.getElementById("imageUrl").value;
+			var description = document.getElementById("description").value;
+			
+			// Create new university element
+			var newUniversity = document.createElement("div");
+			newUniversity.innerHTML = "<h2>" + name + "</h2>" +
+									  "<p><strong>Location:</strong> " + location + "</p>" +
+									  "<img src='" + imageUrl + "' alt='" + name + "' width='300'>" +
+									  "<p>" + description + "</p>" +
+									  "<button onclick='removeUniversity(this)'>Remove</button>";
+			
+			// Add new university element to list
+			document.getElementById("universityList").appendChild(newUniversity);
+			
+			// Reset form data
+			document.getElementById("name").value = "";
+			document.getElementById("location").value = "";
+			document.getElementById("imageUrl").value = "";
+			document.getElementById("description").value = "";
+		}
+		
+		function removeUniversity(button) {
+			// Remove university element from list
+			document.getElementById("universityList").removeChild(button.parentNode);
+			
+			// Display default content if list is empty
+			/*if (document.getElementById("universityList").childElementCount == 0) {
+				document.getElementById("defaultContent").style.display = "block";
+			}*/
+
+			// Display default form
+			document.getElementById("defaultForm").style.display = "block";
+			document.getElementById("form").reset();
+		}
+	</script>
+</head>
+<body>
+	<h1>Universities List</h1>
+	
+	<div id="defaultContent">
+		<p>No universities added yet. Use the form below to add a new university.</p>
+	</div>
+	
+	<div id="universityList"></div>
+	
+	<form>
+		<label for="name">University Name:</label><br>
+		<input type="text" id="name" name="name"><br>
+		<label for="location">Location:</label><br>
+		<input type="text" id="location" name="location"><br>
+		<label for="imageUrl">Image URL:</label><br>
+		<input type="text" id="imageUrl" name="imageUrl"><br>
+		<label for="description">Description:</label><br>
+		<textarea id="description" name="description"></textarea><br>
+		<input type="button" value="Add to the list" onclick="addUniversity()">
+	</form>
+</body>
+</html>
