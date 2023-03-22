@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="HW4.css">
+    <title>Graduate School Wish List</title>
+</head>
+
+<body>
+<div class="Header">
+    <center>
+    <h1>Graduate School Wish List</h1>
+    <p>Did you find an exciting school to attend for graduate school? Use the form below to add them to your wishlist!</p>
+    <br>
+    </center>
+</div>
+
+<div class="Page">
+    <div id="Form">
+        <form>
+            <p>
+            <br><label for="univname">University Name</label><br>
+            <input type="text" id="univname" name="univname" size="40" placeholder="Enter the name of the university"><br>
+
+            <br><label for="location">Location</label><br>
+            <input type="text" id="location" name="location" size="40" placeholder="Where is it located?"><br>
+
+            <br><label for="photo">Photo</label><br>
+            <input type="text" id="photo" name="photo" size="40" placeholder="Enter an image url of the place"><br>
+
+            <br><label for="description">Description</label><br>
+            <input type="text" id="description" name="description" size="40" placeholder="Where is it located?"><br>
+
+            <br><input type="submit" name="submit" value="Add to list" onclick="addItem()">
+            </p>
+        </form>
+    </div>
+
+    <div class="UnivDetails">
+        <h2><br>University Details</h2>
+        <br>
+        <header>
+            <img src="csuf.jpg" alt="CSUF">
+        </header>
+        <ul id="univlist">
+            <li class="univitem">
+                <h2>California State University, Fullerton</h2>
+                <p><br>Fullerton, CA</p>
+                <p><br>It is located in the city of Fullerton.</p>
+                <br>
+                <input type="submit" name="remove" value="Remove" onclick="removeItem()">
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="universityList"></div>
+
+<script src="HW4.js"></script>
+
+</body>
+</html>
