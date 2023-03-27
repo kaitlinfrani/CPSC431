@@ -1,50 +1,70 @@
+// form, list, remove button variables
 const form = document.querySelector("form");
 const outputList = document.querySelector("#univlist");
-const defaultListItem = document.querySelector("#univitem");
-const defaultRemoveButton = defaultListItem.querySelector(".remove_btn");
-defaultRemoveButton.disabled = true;
+const defaultList = document.querySelector("#univitem");
+const defaultRemoveButton = defaultList.querySelector(".remove_btn");
 
-function addItemToList(univname, location, photo, description) {
+// add item to list
+function addItem(data) {
+  // create element list
   const listItem = document.createElement("li");
-  listItem.innerHTML = `
-    <img src="${photo}" alt="${univname}">
-    <h3>${univname}</h3>
-    <p>${location}</p>
-    <p>${description}</p>
-    <button class="remove_btn">Remove</button>
+
+  // list format
+  const listHtml = `
+    <img src="${data.photo}" alt="${data.univname}">
+      <h3>${data.univname}</h3>
+      <p>${data.location}</p>
+      <p>${data.description}</p>
+      <button class="remove_btn">Remove</button>
   `;
-  if (outputList.firstElementChild == defaultListItem) {
-    outputList.removeChild(defaultListItem);
+
+  // html to list 
+  listItem.innerHTML = listHtml;
+
+  // replace new item
+  if (outputList.firstElementChild == defaultList) {
+    outputList.removeChild(defaultList);
   }
+
+  // append item to the list
   outputList.appendChild(listItem);
-  if (defaultRemoveButton.disabled) {
-    defaultRemoveButton.disabled = false;
-  }
 }
 
-function removeItemFromList(listItem) {
+// remove items from list
+function removeItem(listItem) {
+  // update the list on the page
   outputList.removeChild(listItem);
+
+  // show default item of csuf
   if (outputList.children.length === 0) {
-    outputList.appendChild(defaultListItem);
-    defaultRemoveButton.disabled = true;
+    outputList.appendChild(defaultList);
   }
 }
 
-form.addEventListener("submit", (event) => {
+// check when submit is clicked
+form.addEventListener("submit", function (event) {
+  // prevent default
   event.preventDefault();
-  const univname = form.elements["univname"].value;
-  const location = form.elements["location"].value;
-  const photo = form.elements["photo"].value;
-  const description = form.elements["description"].value;
-  addItemToList(univname, location, photo, description);
+
+  // receive input values and put it onto list
+  addItem({
+    univname: form.elements["univname"].value,
+    location: form.elements["location"].value,
+    photo: form.elements["photo"].value,
+    description: form.elements["description"].value
+  });
+
+  // reload form
   form.reset();
 });
 
-outputList.addEventListener("click", (event) => {
+// check when remove button is clicked
+outputList.addEventListener("click", function (event) {
+  // remove the items
   if (event.target.classList.contains("remove_btn")) {
     const listItem = event.target.closest("li");
-    if (listItem !== defaultListItem) {
-      removeItemFromList(listItem);
+    if (listItem !== defaultList) {
+      removeItem(listItem);
     }
   }
 });
