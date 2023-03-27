@@ -36,6 +36,8 @@ header img {
 
 .UnivDetails {
     width: 50%;
+    position: absolute;
+    right: 0;
 }
 
 

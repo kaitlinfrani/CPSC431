@@ -1,4 +1,4 @@
-function addItem() {
+/*function addItem() {
     // Get form input
     var name = document.getElementById("univname").value;
     var location = document.getElementById("location").value;
@@ -27,8 +27,9 @@ function removeItem() {
         document.getElementById("defaultContent").style.display = "block";
     }*/
 
+/*
     // Display default form
     document.getElementById("form").style.display = "block";
     document.getElementById("form").reset();
 }
-
+*/
