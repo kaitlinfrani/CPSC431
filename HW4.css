@@ -18,9 +18,10 @@
     padding: 0;
 }
 
-header img {
+li img {
     width: 400px;
     margin-right: 20px;
+    list-style-type: none;
 }
 
 .Page {
@@ -38,6 +39,11 @@ header img {
     width: 50%;
     position: absolute;
     right: 0;
+    list-style-type: none;
+}
+
+#univlist li {
+    list-style-type: none;
 }
 
 

@@ -15,8 +15,8 @@
 </div>
 
 <div class="Page">
-    <div id="Form">
-        <form>
+    <div class="Form">
+        <form id="univForm">
             <p>
             <br><label for="univname">University Name</label><br>
             <input type="text" id="univname" name="univname" size="40" placeholder="Enter the name of the university"><br>
@@ -28,32 +28,27 @@
             <input type="text" id="photo" name="photo" size="40" placeholder="Enter an image url of the place"><br>
 
             <br><label for="description">Description</label><br>
-            <input type="text" id="description" name="description" size="40" placeholder="Where is it located?"><br>
+            <input type="text" id="description" name="description" size="40" placeholder="Give a description."><br>
 
-            <br><input type="submit" name="submit" value="Add to list" onclick="addItem()">
+            <br><button type="submit_btn">Add to list</button>
             </p>
         </form>
     </div>
 
     <div class="UnivDetails">
         <h2><br>University Details</h2>
-        <br>
-        <header>
-            <img src="csuf.jpg" alt="CSUF">
-        </header>
         <ul id="univlist">
-            <li class="univitem">
-                <h2>California State University, Fullerton</h2>
-                <p><br>Fullerton, CA</p>
-                <p><br>It is located in the city of Fullerton.</p>
+            <li id="univitem">
+                <img src="https://news.fullerton.edu/app/uploads/2022/09/gateway.jpg" alt="CSUF">
+                <h3>University Name</h3>
+                <p><br>University Location</p>
+                <p><br>University Description</p>
                 <br>
-                <input type="submit" name="remove" value="Remove" onclick="removeItem()">
+                <button class="remove_btn">Remove</button>
             </li>
         </ul>
     </div>
 </div>
-
-<div id="universityList"></div>
 
 <script src="HW4.js"></script>
 
