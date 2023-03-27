@@ -1,3 +1,8 @@
+/*Kaitlin Frani
+CPSC431-02
+HW#4
+3/27/23
+*/
 // form, list, remove button variables
 const form = document.querySelector("form");
 const outputList = document.querySelector("#univlist");
