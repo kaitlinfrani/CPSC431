@@ -52,7 +52,7 @@ function removeItemFromList(listItem) {
 }
 
 // Event listener to the form to handle form submissions
-form.addEventListener("submit_btn", function (event) {
+form.addEventListener("submit", function (event) {
   // Prevent the default form submission behavior
   event.preventDefault();
 
